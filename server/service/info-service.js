@@ -1,4 +1,6 @@
 const { db_insertInfo, db_getInfoById } = require("../db_controller/db_info");
+const { sendFirstEmail } = require("./email-service");
+const { sendFirstSMS } = require("./sms-service");
 
 const addInfo = async (req, res) => {
   const contactInfo = req.body;
@@ -15,6 +17,8 @@ const getQRCode = (id) => {
 const getInfo = async (req, res) => {
   const id = req.params.id;
   const info = await db_getInfoById(id);
+  sendFirstEmail(info);
+  sendFirstSMS(info);
   res.status(200).json({ info: info });
 };
 
