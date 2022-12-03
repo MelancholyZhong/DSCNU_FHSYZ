@@ -19,7 +19,7 @@ const db_getInfoById = async (id) => {
   try {
     foundInfo = await database.collection("contacts").findOne(query);
   } catch (err) {
-    res.status(500).send({ msg: err });
+    console.log(err);
   }
 
   return foundInfo;
