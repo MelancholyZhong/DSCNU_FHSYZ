@@ -13,7 +13,9 @@ const port = 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", res.send("Hello World!"));
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 //
 app.listen(port, () => {
