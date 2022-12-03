@@ -6,7 +6,7 @@ let database;
 
 const connectToClient = () => {
   const client = new MongoClient(uri);
-  database = client.db("Moviewer");
+  database = client.db("Noticer");
   if (database) {
     console.log("connected");
   }
