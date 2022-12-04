@@ -1,0 +1,28 @@
+.title {
+    text-align: center;
+    margin-top: 5%;
+    font-family: "Anton", sans-serif;
+    /* font-family: 'Caveat', cursive; */
+    font-size: 80px;
+}
+
+.start {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: "Permanent Marker", cursive;
+    font-size: 100px;
+    margin-left: 60%;
+    color: orangered;
+}
+
+.start:hover {
+    color: black;
+}
+
+.notionimg {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 300px;
+}

@@ -1,41 +1,42 @@
-import React, { Suspense } from "react";
+import React from "react";
 import {
     BrowserRouter as Router,
     Routes,
     Route,
     Navigate,
 } from "react-router-dom";
-
+import IntroPage from "./components/IntroPage";
+import GenerateQRcodePage from "./components/GenerateQRcodePage";
+import InfoPage from "./components/InfoPage";
+import NavBar from "./components/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-const Intro = React.lazy(() => import("./components/Intro"));
-const InfoForm = React.lazy(() => import("./components/infoForm"));
-const Alert = React.lazy(() => import("./components/Alert"));
 
 function App() {
     return (
         <div className="App">
             <Router>
+                <NavBar/>
+                <div style={{padding: "15px"}}></div>
                 <main>
-                    <Suspense fallback={<div className="center"></div>}>
                         <Routes>
-                            <Route path="/" exact element={<Intro />} />
+                            <Route path="/" exact element={<IntroPage />} />
                             <Route
                                 path="/inputInfo"
                                 exact
-                                element={<InfoForm />}
+                                element={<GenerateQRcodePage />}
                             />
                             <Route
                                 path="/alert/:userId"
                                 exact
-                                element={<Alert />}
+                                element={<InfoPage />}
                             />
                             <Route
                                 path="*"
                                 element={<Navigate to="/" replace />}
                             />
                         </Routes>
-                    </Suspense>
                 </main>
             </Router>
         </div>
