@@ -10,7 +10,7 @@ const addInfo = async (req, res) => {
 };
 
 const getQRCode = (id) => {
-  const prefix = "http://localhost:3000/info/";
+  const prefix = "http://localhost:3001/alert/";
   return `https://api.qrserver.com/v1/create-qr-code/?data=${prefix + id}"`;
 };
 
