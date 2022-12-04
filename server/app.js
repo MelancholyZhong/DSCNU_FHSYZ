@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoUtil = require("./mongoUtil");
-const path = require("path");
+// const path = require("path");
 
 const app = express();
 const port = 3001;
@@ -11,7 +11,7 @@ const alertRoutes = require("./routes/alter-routes");
 
 mongoUtil.connectToClient();
 
-app.use(express.static(path.join(__dirname, "frontend/build")));
+// app.use(express.static(path.join(__dirname, "frontend/build")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
