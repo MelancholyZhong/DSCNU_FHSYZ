@@ -10,7 +10,7 @@ const addInfo = async (req, res) => {
 };
 
 const getQRCode = (id) => {
-  const prefix = "http://localhost:3001/api/info/";
+  const prefix = "http://localhost:3000/info/";
   return `https://api.qrserver.com/v1/create-qr-code/?data=${prefix + id}"`;
 };
 
@@ -22,4 +22,11 @@ const getInfo = async (req, res) => {
   res.status(200).json({ info: info });
 };
 
-module.exports = { addInfo, getInfo };
+const sendAlert = async (req, res) => {
+  const alert = req.body;
+  sendFirstEmail(alert);
+  sendFirstSMS(alert);
+  res.status(200).json({ msg: "Custom alter sent!" });
+};
+
+module.exports = { addInfo, getInfo, sendAlert };

@@ -7,6 +7,7 @@ const app = express();
 const port = 3001;
 
 const infoRoutes = require("./routes/info-routes");
+const alertRoutes = require("./routes/alter-routes");
 
 mongoUtil.connectToClient();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/info", infoRoutes);
+app.use("/api/alert", alertRoutes);
 
 app.listen(port, () => {
   console.log(`Server runing at port ${port}`);
