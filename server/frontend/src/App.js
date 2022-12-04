@@ -10,7 +10,6 @@ import "./App.css";
 
 const Intro = React.lazy(() => import("./components/Intro"));
 const InfoForm = React.lazy(() => import("./components/infoForm"));
-const QRpage = React.lazy(() => import("./components/QRpage"));
 const Alert = React.lazy(() => import("./components/Alert"));
 
 function App() {
@@ -27,11 +26,10 @@ function App() {
                                 element={<InfoForm />}
                             />
                             <Route
-                                path="/alert/:userId/"
+                                path="/alert/:userId"
                                 exact
                                 element={<Alert />}
                             />
-                            <Route path="/qrpage" exact element={<QRpage />} />
                             <Route
                                 path="*"
                                 element={<Navigate to="/" replace />}

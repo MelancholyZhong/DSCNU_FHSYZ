@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./infoForm.css";
 
 const InfoForm = () => {
@@ -9,21 +8,35 @@ const InfoForm = () => {
     const [phone, setPhone] = useState("");
     const [medicalHistory, setMedicalHistory] = useState("");
     const [messageContent, setMessageContent] = useState("");
-    let navigate = useNavigate();
-
+    const [QRCode, setQRCode] = useState("");
 
     const submitHandler = (event) => {
         event.preventDefault();
-        const user = {
-            firstName,
-            lastName,
+
+        const userInfo = {
+            first_name: firstName,
+            last_name: lastName,
             email,
             phone,
-            messageContent,
-            medicalHistory,
+            message_content: messageContent,
+            medical_history: medicalHistory,
         };
-        navigate("/qrpage")
-        console.log(user);
+
+        const saveInfo = async () => {
+            try {
+                const response = await fetch("http://localhost:3001/api/info", {
+                    method: "POST",
+                    body: JSON.stringify(userInfo),
+                    headers: { "Content-Type": "application/json" },
+                });
+                console.log(response.json());
+                // setQRCode(response.json().QRCode);
+            } catch (error) {
+                console.log(error.message);
+                alert("Something wrong, please try later");
+            }
+        };
+        saveInfo();
     };
 
     return (
