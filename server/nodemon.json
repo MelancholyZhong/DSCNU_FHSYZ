@@ -1,0 +1,10 @@
+{
+    "env": {
+        "URI": "mongodb+srv://zhongyao:V9OnhgEv38gdWyJp@cluster0.2b2dd.mongodb.net/?retryWrites=true&w=majority",
+        "SENDGRID_API_KEY": "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",
+        "SECRET_SENDER": "FSHYZ22.Emergency@gmail.com",
+        "SMS_ID": "AC0b96415f6da32ae6e8efd9f72dcd6801",
+        "SMS_TOKEN": "8e17e3493af6d660fae3382fbff8a617",
+        "SMS_SENDER": "+17208078513"
+    }
+}
